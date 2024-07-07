@@ -162,7 +162,8 @@ justify-self: left;
 
 justify-content: center;
 align-content: center;
-padding: 4rem;
+padding-top: 4rem;
+padding-bottom: 4rem;
 }
 
 .gallerySection h3{
@@ -256,14 +257,14 @@ text-align: center;
   
   .gallerySection{
     display: grid;
-    width: 90%;
-    height: 90%;
+   
     grid-template-columns: auto auto;
     column-gap: 0.5rem;
   grid-template-rows: auto auto auto;
   justify-content: center;
   align-content: center;
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   
   }
   .galleryCont{
@@ -354,13 +355,13 @@ align-items: last baseline;
   .gallerySection{
     display: grid;
     
-    grid-template-columns: 90%;
+    grid-template-columns: 80%;
     column-gap: 0.5rem;
   margin: auto 0;
   justify-content: center;
   align-content: center;
   justify-self: center;
-  padding: 2rem;
+ 
   
   }
 .gallerySection .figureImg{
