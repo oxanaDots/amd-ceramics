@@ -1,0 +1,353 @@
+#root{
+    width: 100%;
+display: flex;
+margin: 0;
+
+}
+
+form{
+display: flex;
+
+height: 90%;
+flex-direction: column;
+
+align-items: center;
+padding-top: 1rem;
+padding-bottom: 2rem;
+
+}
+.sectionOne{
+  position: relative;  
+
+    display: grid;
+    column-gap: 10vw;
+    grid-template-columns: 20rem 20rem;
+
+    background-image: linear-gradient(to right,rgba(81, 81, 87, 0.539) 50%, rgba(228, 229, 232, 0.497) 50%);
+
+justify-content: center;
+    align-items: last baseline;
+}
+
+.sectionOne::before{
+    position: absolute;
+    content: " ";
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: none;
+    background-image: url(./..//../public/images/concrete-wall.jpg);
+}
+
+.submitted {
+    padding: 3rem;
+    display: grid;
+    column-gap: 8vw;
+    grid-template-columns: 30% 30%;
+    background-image: linear-gradient(to right,rgba(81, 81, 87, 0.41) 50%, rgba(228, 229, 232, 0.46) 50%);
+text-align: center;
+    /* background-color: rgba(100, 102, 104, 0.288); */
+justify-content: center;
+    align-items: center;
+}
+
+
+
+form legend{
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+   color: rgb(255, 255, 255);
+}
+
+fieldset{
+    border: none;
+ 
+    width: 100%;
+    display: flex;
+flex-direction: column;
+
+
+}
+
+form input, textarea{
+    width: auto;
+    border: none;
+    background-color: rgb(228, 229, 232);
+}
+textarea{
+    border-radius: 0.3rem;
+    height: 5rem;
+}
+
+form label{
+    margin-left: 0.5rem;
+    color:rgb(68, 68, 73);
+    padding-bottom: 0.6rem;
+  padding-top: 1.5rem;
+}
+
+.submitBtn{
+  color: rgb(255, 255, 255);
+    font-size: 1rem;
+background-color: rgb(81, 81, 87);
+   border: none;
+    width: 9rem;
+    padding: 0.8rem  1rem;
+   margin-top: 2rem;
+width: auto;
+    border-radius: 0.3rem;
+    transition: all 0.7s ease-in-out;
+}
+
+.textCont span{
+ font-weight: 500;
+ font-size: clamp(0.8rem, 8vw - 0.5rem, 1.3rem);
+
+ color:  rgba(255, 255, 255, 0.904);
+ opacity: 1;
+ transition: all 0.3s ease-in-out;
+
+}
+
+.textCont span:hover{
+   transition: all 0.3s ease-in-out;
+    color:  rgb(255, 255, 255);
+   
+   }
+
+.textCont p{
+    font-size: clamp(0.8rem, 8vw - 0.8rem, 1rem);
+text-align: left;
+    opacity: 1;
+    margin-bottom: 2rem;
+   }
+
+   .textCont button{
+   border: none;
+   background-color: rgba(255, 255, 255, 0.773);
+   color :rgb(68, 68, 73);
+   padding: 0.8rem  1rem;
+   border-radius: 0.3rem;
+   font-size: clamp(0.8rem, 9vw - 1rem, 1rem);
+
+   width: 100%;
+   transition: all 0.6s ease-in-out;
+   }
+
+
+   .sectionOne  button:hover{
+   transform: scale(1.03);
+   cursor: pointer;
+   transition: all 0.6s ease-in-out;
+    }
+.textCont h2{
+    text-align: left;
+margin-top: 1rem;
+    font-size: clamp(1.5rem, 18vw - 0.7rem, 3rem);
+    font-weight: 500;
+   
+   color: rgb(255, 255, 255);
+}
+
+.textCont h3{
+    margin: 0;
+    font-size: clamp(0.9rem, 18vw - 1rem, 1.3rem);
+    color:  rgba(255, 255, 255, 0.804);
+font-weight: 400;
+}
+
+
+.textCont h4{
+color:  rgba(255, 255, 255, 0.948);
+font-weight: 100;
+font-size: clamp(0.8rem, 9vw - 1rem, 1rem);
+
+margin-top: 0;
+margin-bottom: 2rem;
+}
+.textCont {
+    padding: 1vw;
+ display: grid;
+
+justify-content: space-between;
+padding: 1rem 0rem;
+grid-template-columns: 100%;
+grid-template-rows: auto 8rem 9rem  3rem;
+   }
+
+   .error p{
+
+  display: flex;
+  opacity: 0;
+  margin: 0.3rem 0rem 0rem 0rem;
+  transition:  all 0.6s ease-in-out;
+
+   }
+   .error span{
+    display: flex;
+   }
+
+   .show p {
+font-size: smaller;
+   margin: 0.3rem 0.5rem 0.5rem 0.5rem;
+    color: rgb(207, 24, 24);
+    display: flex;
+    justify-content: left;
+   padding-left: 0.5rem;
+    opacity: 1;
+
+    transition:  all 0.6s ease-in-out;
+   }
+
+   .show p{
+    opacity: 1;
+    margin: 0.3rem 0rem 0rem 0rem;
+   }
+
+   .submittedMsg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   }
+
+
+  @media (max-width: 760px){
+    .sectionOne{
+ 
+        grid-template-columns: 40vw 40vw;
+    
+      
+    }
+    
+  }
+
+  @media (max-width: 580px){
+    .sectionOne{
+       display: grid;
+        grid-template-columns: 70vw ;
+        background-image: linear-gradient(to bottom,rgba(113, 113, 121, 0.696) 20%, rgba(228, 229, 232, 0.555) 50%);
+padding-top: 1rem;
+      
+    }
+
+
+    .textCont span{
+        font-weight: 500;
+      
+        color:  rgba(255, 255, 255, 0.801);
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+       
+       }
+       
+       .textCont span:hover{
+          transition: all 0.3s ease-in-out;
+           color:  rgb(255, 255, 255);
+          
+          }
+       
+       .textCont p{
+          margin-top: 0;
+           opacity: 1;
+           grid-row: 3;
+           grid-column: 1/2 span;
+      
+          }
+       
+          .textCont button{
+          border: none;
+          grid-column: 1/2 span;
+          grid-row: 3;
+    
+          background-color: rgba(224, 226, 230, 0.495);
+          color :rgb(68, 68, 73);
+          padding: 2vw  2vw;
+          border-radius: 0.3rem;
+         
+        width: 100%;
+          transition: all 0.6s ease-in-out;
+          }
+       
+          
+       
+          .sectionOne  button:hover{
+          transform: scale(1.03);
+          cursor: pointer;
+          transition: all 0.6s ease-in-out;
+           }
+       .textCont h2{
+        grid-column: 1/2 span;
+  margin-bottom: 1rem;
+  margin-top: 0;
+        text-align: center;
+       }
+       
+       .textCont h3{
+          margin-top: 0.5rem;
+          
+          margin-bottom: 1rem;
+           grid-column: 1/2 span;
+           text-align: center;
+       }
+       
+       
+       .textCont h4{
+       color:  rgba(255, 255, 255, 0.868);
+       font-weight: 200;
+   
+         margin-bottom: 0;
+      
+       }
+       .textCont {
+         display: grid;
+         justify-content: center;
+         align-items: center;
+         column-gap: 5vw;
+        grid-template-columns: 50% 50%;
+       grid-template-rows: auto;
+       width:auto;
+       padding-bottom: 2rem;
+       border-bottom: 1.5px dotted rgb(68, 68, 73);
+   
+          }
+       
+          .error p{
+       
+         display: flex;
+         opacity: 0;
+         margin: 0.3rem 0rem 0rem 0rem;
+         transition:  all 0.6s ease-in-out;
+       
+          }
+          .error span{
+           display: flex;
+          }
+       
+          .show p {
+       font-size: smaller;
+          margin: 0.3rem 0.5rem 0.5rem 0.5rem;
+           color: rgb(207, 24, 24);
+           display: flex;
+           justify-content: left;
+          padding-left: 0.5rem;
+           opacity: 1;
+       
+           transition:  all 0.6s ease-in-out;
+          }
+       
+          .show p{
+           opacity: 1;
+           margin: 0.3rem 0rem 0rem 0rem;
+          }
+       
+          .submittedMsg{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+          }
+    
+  }
