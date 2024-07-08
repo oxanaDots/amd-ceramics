@@ -31,8 +31,9 @@ function QuestionItem({question, i,  handleToggle, isOpen, allClosed}){
 
     return(
         <div  num={i} key={question.i} onClick={()=>handleToggle(i)} className={`${styles.question} ${allClosed ? styles.hover : '' } ${isOpen ? styles.active :  '' }`}>
-        <h4 style={isOpen? {color: '#fffff'} : {}}>{question.question }<span >{isOpen? "-" : '+'}</span></h4> 
-        <p style={isOpen ? {paddingBottom: '2rem'} : {}}>{isOpen ?  question.answer : null}</p></div>
+        <h4 style={isOpen? {color: '#fffff'} : {}}>{question.question }</h4> 
+        <span >{isOpen? "-" : '+'}</span>
+        <p style={isOpen ? {paddingBottom: '1rem', paddingTop: '1rem'} : {}}>{isOpen ?  question.answer : null}</p></div>
     )
 }
 

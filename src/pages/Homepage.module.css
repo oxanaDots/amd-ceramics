@@ -600,12 +600,14 @@ padding: 4rem 0rem 0rem 0rem;
 .question{
 width: auto;
 height: auto;
-display: flex;
+display: grid;
+column-gap: 1rem;
 flex-direction: column;
 background-color:rgba(var(--light-grey), 0.5);
-justify-content: space-evenly;
+justify-content:center;
+align-items: center;
 text-align: left;
-padding: 0rem 1.4rem;
+padding: 0rem 1rem;
 border-radius: 1rem;
 transition: all 0.5s ease-in-out;
 border: solid 1.5px var(--warm-grey);
@@ -637,7 +639,7 @@ transition: all 0.5s ease-in-out;
 
 .question h4{
 
-display: flex;
+grid-column: 1;
 margin: 1.5rem  0rem;
 justify-content: space-between;
 align-items: center;
@@ -654,7 +656,7 @@ opacity: 1;
 .sectionThree span{
 cursor: pointer;
 font-size: 2rem;
-padding-left: 2rem;
+grid-column: 2;
 color: var(--dark-blue);
 font-weight:lighter;
 }
@@ -708,6 +710,15 @@ font-size: clamp(1.5rem, 5vw - 0.5rem, 2rem);
   form{
   width: 70vw;
   }
+
+  .qCont{
+ 
+
+   
+    width:70%;
+  
+   }
+   
 }
 
 .submittedMsg h2{ 
