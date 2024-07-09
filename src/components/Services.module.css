@@ -37,7 +37,9 @@ align-items: center;
 .textCont p{
 margin-top: 0;
 color: white;
-font-size: clamp(0.8rem, 6vw - 0.7rem, 1rem);
+font-size: clamp(0.9rem, 6vw - 0.7rem, 1.1rem);
+margin-right: 1rem;
+margin-left: 1rem;
 
 }
 
@@ -53,7 +55,7 @@ justify-content: left;
 }
 
 .textCont h2{
-    font-size: clamp(2rem, 8vw - 0.7rem, 3rem);
+    font-size: clamp(2.2rem, 8vw - 0.7rem, 3rem);
 
 }
 .textCont h1{
@@ -68,9 +70,13 @@ color: var(--light-grey);
     padding: 0rem;
    
 }
-
+.textContTwo{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
 
 .textContTwo p {
+  
   opacity: 1;
 color: var(--dark-blue);
 margin-top: 0;
