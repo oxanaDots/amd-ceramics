@@ -161,7 +161,7 @@ console.log(serviceData)
         <p>* reach out to us via email to get a personalized quote</p>
         </div>
       
-        <div className={styles.calc}>
+        <div  className={styles.calc}>
          { showCalc && <TileCalc convertedAreas={convertedAreas} setConvertedAreas={setConvertedAreas} totalArea={totalArea} setUpdateInput={setUpdateInput}  tilingServices={tilingServices} setServices={setServices} showCalc={showCalc} setShowCalc={setShowCalc}/>}
         <div className={`${styles.quote} `}>
        

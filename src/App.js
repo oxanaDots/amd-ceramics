@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import Services from './pages/Services';
 import AboutUs from './pages/AboutUs';
 import ServiceItem from './components/ServiceItem';
+import TileCalc from './components/TileCalc';
 
 function reducer(state, action) {
     switch (action.type) {
@@ -319,6 +320,7 @@ function App() {
                 />
                 <Route path='/gallery' element={<Portfolio data={data} />} />
                 <Route path='/aboutUs' element={<AboutUs />} />
+                <Route path='/tile-ccalculator' element={<TileCalc/>}/>
                 <Route
                     path='/contact'
                     element={

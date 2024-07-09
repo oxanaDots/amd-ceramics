@@ -190,7 +190,11 @@ function HomePage({data, nameInput, form, phoneNumberInput, handleSubmit, emailI
       Transform any room with high-quality tiling that reflects your style and meets your functional needs.
        </h2>
        <p>
-       Unsure of your requirements or where to begin? Use our <strong>Tile Calculator</strong> to easily determine the total area you need to tile and get an approximate quote for our services.
+       Unsure of your requirements or where to begin? Use our 
+      
+       <strong> Tile Calculator </strong> 
+     
+       to easily determine the total area you need to tile and get an approximate quote for our services.
        </p>
 
        <HashLink smooth='true' to="/services#quote" >

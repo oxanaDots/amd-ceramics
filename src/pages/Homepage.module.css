@@ -100,7 +100,7 @@ gap: auto;
 
   column-gap: 5rem;
 vertical-align: sub;
-background-color:  #c7c8cc;
+background-color: var(--light-grey);
 
 padding: 6rem 1rem 5rem 1rem;
 
