@@ -40,10 +40,7 @@ section{
  }
 
 
-h2{
 
-  font-size: clamp(2rem, 8vw - 0.7rem, 3rem);
-}
 
 li{
 text-decoration: none;
