@@ -100,7 +100,7 @@ const services = [
         servicesName: 'Tile Installation',
         serviceDesc: 'Laying new tiles on floors, walls, backsplashes, or other surfaces',
         paragraph: 'Tile installation is a skilled craft that enhances the aesthetic and functional aspects of spaces in homes and commercial buildings...',
-        iconPath: 'https://img.icons8.com/external-others-pike-picture/200/external-equipment-tiler-work-equipment-others-pike-picture-15.png',
+        iconPath: "https://img.icons8.com/external-others-pike-picture/50/000000/external-device-tiler-work-equipment-others-pike-picture-2.png",
         imagePath: '/images/tiler-working-renovation-apartment.jpg'
     },
     {

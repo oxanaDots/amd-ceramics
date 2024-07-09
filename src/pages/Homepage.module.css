@@ -414,6 +414,11 @@ grid-row: 2;
     border-left: 1px solid var(--light-grey);
 
   }
+
+  .logo{
+    width: 3rem;
+  
+  }
 }
 
 
@@ -718,7 +723,8 @@ font-size: clamp(1.5rem, 5vw - 0.5rem, 2rem);
     width:70%;
   
    }
-   
+
+  
 }
 
 .submittedMsg h2{ 

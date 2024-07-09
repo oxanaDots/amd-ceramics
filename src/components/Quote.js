@@ -155,8 +155,8 @@ console.log(serviceData)
     return(
 
         <section className={styles.sectionTwo}>
-        <div className={styles.textCont}>
-        <h1>Get a Quote</h1>
+        <div className={styles.textContTwo}>
+        <h2>Get a Quote</h2>
         {/* <h3>Your ideal living space is just a quote away.</h3> */}
         <p>* reach out to us via email to get a personalized quote</p>
         </div>
@@ -191,8 +191,9 @@ console.log(serviceData)
       { serviceData.map((item, index)=> 
 ( <span className={styles.checkBoxItem}>
       {/* <div className='summaryCont'> */}
-    <div className={styles.labelCont} style={{display:'flex', alignItems:'start', justifyContent: 'space-between', width:'auto'}}>
+    <div  className={styles.labelCont} style={{display:'flex', alignItems:'start', justifyContent: 'space-between', width:'auto'}}>
     <button 
+    key={item.index}
     type='button'
       onChange={(e)=> setUpdateInput (e.target.value)}
       onClick={(e) => handleAddService(index, updateInput, tile)} 
@@ -200,7 +201,7 @@ console.log(serviceData)
    
     <label className={styles.label}>{item.area ? item.servicesName  : item.servicesName  } </label>
       </div>
-      <div className= {item.isSelected ?  styles.show : styles.parDiv} >
+      <div className= {item.isSelected ?  styles.show : styles.parDiv} > 
     <p > {item.isSelected && item.area + 'm²'}</p>
     <p > {item.area && item.tile}</p>
     <p >{item.area &&   '£' + (Number(item.area * item.price )+ (item.area * item.tilePrice))} </p>

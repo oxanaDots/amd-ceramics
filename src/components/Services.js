@@ -45,7 +45,7 @@ iconPath: "https://img.icons8.com/external-others-pike-picture/200/external-equi
 },
 ]
 
-function Services ({ setServices, s, updateInput, tile}){
+function Services ({ setServices,  updateInput, tile}){
 const [checkedService, setCheckedService] = useState (null)
 
 function handleService(e){

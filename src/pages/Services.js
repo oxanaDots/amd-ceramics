@@ -29,7 +29,7 @@ function Services({services}){
 {services.map((item) => <div className={styles.services}>
     <Link smooth='true' to={`/service/${item.servicesName}`}>
 <span>
-    <img src={item.iconPath}/>
+    <img style={{color: '#46484F'}} src={item.iconPath}/>
     <h3>{item.servicesName}</h3>
 </span>
 </Link>
