@@ -1,5 +1,5 @@
 import React from 'react'
-
+import LazyLoad from 'react-lazyload'
 import {useState, useEffect} from 'react'
 import {Link } from 'react-router-dom'
 import Footer from "./Footer"
@@ -37,7 +37,9 @@ function handleNext(i){
      
         <div className={styles.gridColumn}>
       <figure>
+        <LazyLoad  height={200} offset={100}>
       <img src={image}/>
+      </LazyLoad>
       </figure>
     
       <h4>{description} </h4>

@@ -8,7 +8,7 @@ import homeStyles from './Homepage.module.css'
 import Question from './Question'
 import Footer from '../components/Footer'
 import ContactForm from ".//../components/ContactForm";
-
+import LazyLoad from 'react-lazyload'
 
 const logos =[
     {
@@ -128,7 +128,10 @@ function HomePage({data, nameInput, form, phoneNumberInput, handleSubmit, emailI
  </svg>
  
  </div>
+ <LazyLoad  height={200} offset={100}>
         <img ref={descTextRef} src="images/Single-illustr.png"/>
+
+ </LazyLoad>
     </div>
 
 
@@ -144,7 +147,11 @@ function HomePage({data, nameInput, form, phoneNumberInput, handleSubmit, emailI
       <h1>Our Clients</h1>
       <p>We have been working for one of the most prestigious clients in the construction industry </p>
 <div className={homeStyles.logosCont}>
-{companyLogos.map(logo => <img  className={homeStyles.logo} key={logo.companyName} src={logo.path}/>)}
+{companyLogos.map(logo => 
+<LazyLoad height={200} offset={100}>
+<img  className={homeStyles.logo} key={logo.companyName} src={logo.path}/>
+</LazyLoad>
+)}
 </div>
       </div>
      </section>

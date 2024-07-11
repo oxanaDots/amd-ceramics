@@ -1,7 +1,7 @@
 
 import { useState, useEffect} from 'react';
 import React from 'react';
-
+import LazyLoad from 'react-lazyload'
 export default function ImagesSlider({data}) {
 
 
@@ -125,14 +125,14 @@ if(nextSlide === slider){
     <div className='arrange'>
     { images && 
   images.map((image, index) => (
-
- 
-    <img  key={index} src={image} style={{ transform: `translateX(${-slider * 100}%)`,
+    
+   
+    <img  loading='lazy' key={index} src={image} style={{ transform: `translateX(${-slider * 100}%)`,
      opacity: opacity, 
       transition: 'opacity 0.5s ease-in-out', 
-     }}/>
-  ))}
+    }}/>
 
+  ))}
 
 
   </div>
