@@ -137,7 +137,7 @@ const services = [
         serviceDesc: 'Custom cutting tiles to fit around obstacles and in tight corners',
         paragraph: 'Tile cutting and fitting is a meticulous aspect of the tiling process that involves resizing and shaping tiles to perfectly fit the designated space, ensuring a professional finish...',
         iconPath: 'https://img.icons8.com/external-others-pike-picture/200/external-device-tiler-work-equipment-others-pike-picture-2.png',
-        imagePath: '/images/tiler-working-renovation-apartment (1).jpg'
+        imagePath: '/images/tiler-working-renovation-apartment-(1).jpg'
     }
 ];
 
