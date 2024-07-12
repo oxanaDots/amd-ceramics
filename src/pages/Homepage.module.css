@@ -62,7 +62,7 @@ width: 80%;
 
 .logosCont{
 display: flex;
-  flex-wrap: wrap;
+  
 gap: auto;
   justify-content: space-between;
   width: 100%;
@@ -723,7 +723,7 @@ font-size: clamp(1.5rem, 5vw - 0.5rem, 2rem);
  
 
    
-    width:70%;
+    width:80%;
   
    }
 
