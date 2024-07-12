@@ -117,12 +117,13 @@ function HomePage({data, nameInput, form, phoneNumberInput, handleSubmit, emailI
       
   <div className='hero' >
     <div className='text-cont' ref={textRef}>
-  <h1>Welcome to <span style={{color: '#47484a', opacity: '0.8'}}>AMD Ceramics</span></h1>
+  <h3>welcome to </h3>
+  <h1 > AMD Ceramics,</h1>
   </div>
-    <p  ref={paragraphRef}>London based tiling company, dedicated to our craft</p>
+    <p  ref={paragraphRef}>London based tiling company</p>
     <h4>Call us on <strong>07486783475</strong></h4>
     <div className="about-us" ref={aboutUsRef}>
-   <HashLink to="aboutUs" smooth='true'> <h3>About us</h3></HashLink>
+   <HashLink to="aboutUs" smooth='true'> <h4>About us</h4></HashLink>
     <svg width="auto" height="auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
  <path d="M1 12H18M19 12L12 5M19 12L12 19" stroke="#474748" strokeWidth="1.5" stroke-linecap="round" stroke-linejoin="round"/>
  </svg>

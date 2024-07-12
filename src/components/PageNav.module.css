@@ -37,7 +37,7 @@
     align-items: center;
   width: 12rem;
     height: auto;
-    padding: 2rem 0rem  1.5rem;
+    padding: 1rem 0rem  1.5rem;
   }
 
 
@@ -138,6 +138,11 @@ margin: 0.2 ;
   
   .logo img{
     width: 11rem;
+  
+  }
+
+  .logo{
+    padding-top: 3vw;
   }
 .nav{
   display: none;
