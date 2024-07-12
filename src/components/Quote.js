@@ -113,8 +113,6 @@ const isSelected = serviceData.map(service => service.isSelected)
 
 const handleAddService = (index, value, value2) => {
 
-    setUpdateInput( '' )
-    setTiles('')
 
     setError(
         updateInput === '' && isSelected ? '* Enter the size of the area'  : '');   
@@ -129,6 +127,10 @@ const handleAddService = (index, value, value2) => {
         } : service
         )
     );
+
+
+    setUpdateInput( updateInput !== '' &&  tile !== ''  ? '' : updateInput)
+    setTiles( updateInput !== '' &&  tile !== ''  ? '' : tile )
  
 };
 const tilePrice = tiles.map((tile) => tile.price) 
@@ -197,7 +199,7 @@ console.log(serviceData)
     type='button'
       onChange={(e)=> setUpdateInput (e.target.value)}
       onClick={(e) => handleAddService(index, updateInput, tile)} 
-      value={ updateInput}  >{item.area ? '-': '+'}</button>
+      value={ updateInput}  >{item.area && item.tile ? '-': '+'}</button>
    
     <label className={styles.label}>{item.area ? item.servicesName  : item.servicesName  } </label>
       </div>
