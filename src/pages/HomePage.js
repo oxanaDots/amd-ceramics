@@ -61,6 +61,9 @@ const questions =
 
 function HomePage({data, nameInput, form, phoneNumberInput, handleSubmit, emailInput, message, errors, isSubmitted, handleChange}){
 
+
+
+
     const companyLogos = logos;
 
     const textRef = useRef(null)
@@ -89,7 +92,7 @@ function HomePage({data, nameInput, form, phoneNumberInput, handleSubmit, emailI
           textRef.current.classList.add('active');
           heroRef.current.classList.add('active');
           paragraphRef.current.classList.add('active');
-          descTextRef.current.classList.add('active')
+          descTextRef.current.classList.add('active');
           aboutUsRef.current.classList.add('active')
    
       }, 1000);
@@ -228,9 +231,7 @@ function HomePage({data, nameInput, form, phoneNumberInput, handleSubmit, emailI
      </section>
      <section className={homeStyles.contactForm}>
         <h2>Contact Us</h2>
-     <ContactForm  homeStyles={homeStyles} handleChange={handleChange} nameInput={nameInput} phoneNumberInput={phoneNumberInput}
-             emailInput={emailInput} message={message} handleSubmit={handleSubmit} isSubmitted={isSubmitted} errors={errors} form ={form}
-         />
+     <ContactForm  formId='contactForm2'/>
        </section>     
      <Footer/>
       </div>

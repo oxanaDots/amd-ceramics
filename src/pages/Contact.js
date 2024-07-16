@@ -4,21 +4,23 @@ import Footer from "../components/Footer";
 import PageNav from "../components/PageNav";
 import styles from './Contact.module.css'
 import ContactForm from '../components/ContactForm';
-import {Link } from 'react-router-dom'
+import {Link, useFormAction } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link';
+import { useFormContext } from '../context/FormContext';
 
 
 
 
-function Contact({nameInput, homeStyles, form, phoneNumberInput, handleSubmit, emailInput, message, errors, isSubmitted, handleChange}){
+function Contact(){
    
+    const {isSubmitted} = useFormContext()
 
  
 
     return(
         <div>
             <PageNav/>
-            <section className={!isSubmitted ? styles.sectionOne : styles.submitted}>
+            <section className={ styles.sectionOne}>
             <div className={styles.textCont}>
                 <h2>Contact Us</h2>
                 <h3>Got any questions? </h3>
@@ -35,8 +37,7 @@ function Contact({nameInput, homeStyles, form, phoneNumberInput, handleSubmit, e
                       <button>Get a Quote</button>
                  </HashLink>
             </div>
-         <ContactForm homeStyles={{}} handleChange={handleChange} nameInput={nameInput} phoneNumberInput={phoneNumberInput}
-             emailInput={emailInput} message={message} handleSubmit={handleSubmit} isSubmitted={isSubmitted} errors={errors} form ={form}
+         <ContactForm formId='contactForm1'
          />
           
            

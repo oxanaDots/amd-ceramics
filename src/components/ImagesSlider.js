@@ -2,6 +2,8 @@
 import { useState, useEffect} from 'react';
 import React from 'react';
 import LazyLoad from 'react-lazyload'
+
+
 export default function ImagesSlider({data}) {
 
 

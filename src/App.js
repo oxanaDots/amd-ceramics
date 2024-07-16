@@ -9,91 +9,10 @@ import Services from './pages/Services';
 import AboutUs from './pages/AboutUs';
 import ServiceItem from './components/ServiceItem';
 import TileCalc from './components/TileCalc';
+import { FormProvider } from './context/FormContext';
 
-function reducer(state, action) {
-    switch (action.type) {
-        case 'SET_FIELD':
-            return {
-                ...state,
-                [action.formId]: {
-                    ...state[action.formId],
-                    [action.field]: action.value,
-                },
-            };
 
-        case 'SET_ERROR':
-            return {
-                ...state,
-                errors: {
-                    ...state.errors,
-                    [action.formId]: {
-                        ...state.errors[action.formId],
-                        [action.field]: action.errorMessage,
-                    },
-                },
-            };
 
-        case 'CLEAR_ERROR':
-            return {
-                ...state,
-                errors: {
-                    ...state.errors,
-                    [action.formId]: {
-                        ...state.errors[action.formId],
-                        [action.field]: '',
-                    },
-                },
-            };
-
-        case 'RESET_FORM':
-            return {
-                ...initialState, // Resetting all fields to the initial state
-            };
-
-        case 'IS_SUBMITTED':
-            return {
-                ...state,
-                [action.formId]: {
-                    ...state[action.formId],
-                    isSubmitted: true,
-                },
-            };
-
-        default:
-            return state;
-    }
-}
-
-const initialState = {
-    contactForm1: {
-        nameInput: '',
-        emailInput: '',
-        phoneNumberInput: '',
-        message: '',
-        isSubmitted: false,
-    },
-    contactForm2: {
-        nameInput: '',
-        emailInput: '',
-        phoneNumberInput: '',
-        message: '',
-        isSubmitted: false,
-    },
-    errors: {
-        contactForm1: {
-            nameInput: '',
-            emailInput: '',
-            phoneNumberInput: '',
-            message: '',
-        },
-        contactForm2: {
-            nameInput: '',
-            emailInput: '',
-            phoneNumberInput: '',
-            message: '',
-        },
-    },
-};
 
 // Define your data and services objects
 const services = [
@@ -202,120 +121,17 @@ const data = [
 ];
 
 function App() {
-    const formRefs = {
-        contactForm1: useRef(null),
-        contactForm2: useRef(null),
-    };
-
-    const [state, dispatch] = useReducer(reducer, initialState);
-
-    async function handleSubmit(formId, e) {
-        e.preventDefault();
-
-        const { nameInput, emailInput, phoneNumberInput, message} = state[formId];
-
-        if (!nameInput || !emailInput || !phoneNumberInput || !message) {
-            // Dispatch an error for each field to ensure clarity
-            if (!nameInput) dispatch({ type: 'SET_ERROR', formId, field: 'nameInput', errorMessage: 'Name is required.' });
-            if (!emailInput) dispatch({ type: 'SET_ERROR', formId, field: 'emailInput', errorMessage: 'Email is required.' });
-            if (!phoneNumberInput) dispatch({ type: 'SET_ERROR', formId, field: 'phoneNumberInput', errorMessage: 'Phone number is required.' });
-            if (!message) dispatch({ type: 'SET_ERROR', formId, field: 'message', errorMessage: 'Message is required.' });
-
-            return; // Exit early if there are errors
-        }
-
-        // Clear all errors if every field is filled
-        dispatch({ type: 'CLEAR_ERROR', formId, field: 'nameInput' });
-        dispatch({ type: 'CLEAR_ERROR', formId, field: 'emailInput' });
-        dispatch({ type: 'CLEAR_ERROR', formId, field: 'phoneNumberInput' });
-        dispatch({ type: 'CLEAR_ERROR', formId, field: 'message' });
-
-        // Assuming your emailjs implementation here
-        const serviceId = 'your_service_id';
-        const templateId = 'your_template_id';
-        const publicKey = 'your_public_key';
-
-        try {
-            const result = await emailjs.sendForm(serviceId, templateId, formRefs[formId].current, publicKey);
-            console.log('SUCCESS!', result);
-            dispatch({ type: 'IS_SUBMITTED', formId });
-        } catch (error) {
-            console.log('FAILED...', error.text);
-        }
-    }
-
-    function handleChange(formId) {
-        return function (field) {
-            return function (e) {
-                const value = e.target.value;
-                dispatch({ type: 'SET_FIELD', formId, field, value });
-
-                // Optionally validate on change
-                let error = '';
-                switch (field) {
-                    case 'nameInput':
-                        error = validateFullName(value);
-                        break;
-                    case 'emailInput':
-                        error = validateEmail(value);
-                        break;
-                    case 'phoneNumberInput':
-                        error = validateContactNumber(value);
-                        break;
-                    case 'message':
-                        error = validateMessage(value);
-                        break;
-                    default:
-                        break;
-                }
-
-                if (error) {
-                    dispatch({ type: 'SET_ERROR', formId, field, errorMessage: error });
-                } else {
-                    dispatch({ type: 'CLEAR_ERROR', formId, field });
-                }
-            };
-        };
-    }
-
-    function validateFullName(nameInput) {
-        const regex = /^[a-zA-Z]+ [a-zA-Z]+$/;
-        return regex.test(nameInput) ? null : 'Please enter your full first and last name.';
-    }
-
-    function validateEmail(emailInput) {
-        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        return regex.test(emailInput) ? null : 'Please enter a valid email address.';
-    }
-
-    function validateContactNumber(phoneNumberInput) {
-        const regex = /^[0-9]{11}$/;
-        return regex.test(phoneNumberInput) ? null : 'Please enter a valid contact number';
-    }
-
-    function validateMessage(message) {
-        return message.length >= 10 ? null : 'Message must be at least 10 characters long.';
-    }
+   
 
     return (
+        <FormProvider>
         <BrowserRouter>
             <Routes>
                 <Route
                     path='/'
                     element={
                         <HomePage
-                        data={data}
-                            formId='contactForm1'
-                            handleChange={handleChange('contactForm1')}
-                            nameInput={state.contactForm1.nameInput}
-                            phoneNumberInput={state.contactForm1.phoneNumberInput}
-                            emailInput={state.contactForm1.emailInput}
-                            message={state.contactForm1.message}
-                            handleSubmit={(e) => handleSubmit('contactForm1', e)}
-                            isSubmitted={state.contactForm1.isSubmitted}
-                            errors={state.errors.contactForm1}
-                            formRef={formRefs.contactForm1}
-                        />
+                        data={data}/>
                     }
                 />
                 <Route path='/gallery' element={<Portfolio data={data} />} />
@@ -324,18 +140,7 @@ function App() {
                 <Route
                     path='/contact'
                     element={
-                        <Contact
-                            formId='contactForm2'
-                            handleChange={handleChange('contactForm2')}
-                            nameInput={state.contactForm2.nameInput}
-                            phoneNumberInput={state.contactForm2.phoneNumberInput}
-                            emailInput={state.contactForm2.emailInput}
-                            message={state.contactForm2.message}
-                            handleSubmit={(e) => handleSubmit('contactForm2', e)}
-                            isSubmitted={state.contactForm2.isSubmitted}
-                            errors={state.errors.contactForm2}
-                            formRef={formRefs.contactForm2}
-                        />
+                        <Contact/>
                     }
                 />
                 <Route
@@ -358,6 +163,7 @@ function App() {
                 ))}
             </Routes>
         </BrowserRouter>
+        </FormProvider>
     );
 }
 
