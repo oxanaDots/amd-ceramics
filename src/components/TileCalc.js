@@ -7,8 +7,8 @@ import styles from './/Services.module.css'
 
 function formatArea(area) {
   const options = {
-    minimumFractionDigits: 3,
-    maximumFractionDigits: 3,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   };
   return `${parseFloat(area).toLocaleString('en-GB', options)} `;
 }

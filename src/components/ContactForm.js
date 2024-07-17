@@ -12,6 +12,7 @@ import { useFormContext } from "../context/FormContext";
 
     
     return (
+      
         <form id="myForm" ref={formRefs[formId]}  className={contactStyles.form} action="#"  onSubmit={(e)=> handleSubmit(formId, e)}>
         {state[formId].isSubmitted && <h2 className={contactStyles.submittedMsg}>Thank you for your message!</h2>}
 
