@@ -1,5 +1,6 @@
 {
   "name": "tiles",
+  "homepage": "https://oxanaDots.github.io/amd-ceramics",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
