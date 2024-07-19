@@ -1,15 +1,22 @@
-import React, { useReducer, useRef } from 'react';
+import React, { lazy,  Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
-import './App.css';
-import HomePage from './pages/HomePage';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
-import Services from './pages/Services';
-import AboutUs from './pages/AboutUs';
-import ServiceItem from './components/ServiceItem';
-import TileCalc from './components/TileCalc';
 import { FormProvider } from './context/FormContext';
+
+import ServiceItem from './components/ServiceItem';
+import Spinner from './components/Spinner';
+
+// import HomePage from './pages/HomePage';
+// import Portfolio from './pages/Portfolio';
+// import Contact from './pages/Contact';
+// import Services from './pages/Services';
+// import AboutUs from './pages/AboutUs';
+
+const HomePage = lazy(()=> import ('./pages/HomePage'))
+const Portfolio = lazy(()=> import ('./pages/Portfolio'))
+const Contact = lazy(()=> import ('./pages/Contact'))
+const Services = lazy(()=> import ('./pages/Services'))
+const AboutUs = lazy(()=> import ('./pages/AboutUs'))
+
 
 
 
@@ -126,17 +133,11 @@ function App() {
     return (
         <FormProvider>
         <BrowserRouter>
+        <Suspense fallback={<Spinner/>}>
             <Routes>
-                <Route
-                    path='/'
-                    element={
-                        <HomePage
-                        data={data}/>
-                    }
-                />
+                <Route path='/' element={<HomePage data={data}/> }/>
                 <Route path='/gallery' element={<Portfolio data={data} />} />
                 <Route path='/aboutUs' element={<AboutUs />} />
-                <Route path='/tile-ccalculator' element={<TileCalc/>}/>
                 <Route
                     path='/contact'
                     element={
@@ -162,6 +163,7 @@ function App() {
                     />
                 ))}
             </Routes>
+            </Suspense>
         </BrowserRouter>
         </FormProvider>
     );

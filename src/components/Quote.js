@@ -133,6 +133,9 @@ const handleAddService = (index, value, value2) => {
     setTiles( updateInput !== '' &&  tile !== ''  ? '' : tile )
  
 };
+
+
+
 const tilePrice = tiles.map((tile) => tile.price) 
 
 
@@ -143,9 +146,22 @@ const tilePrice = tiles.map((tile) => tile.price)
    console.log(tilePrice)
 
 
-// Update area when service is selected
+
+ const formatNumber =(value)=>{
+
+  const options = {
+    minimumFractionDigits: 4,
+    maximumFractionDigits: 4,
+  };
+
+
+return `${parseFloat(value).toLocaleString('en-GB', options)} `;
+ }  
+
+
 const handleUpdateInput = (value) => {
 
+  const formattedNumber = formatNumber(value)
     setUpdateInput( value )
 
 };
