@@ -101,6 +101,29 @@ function Quote ({showCalc, setShowCalc}){
 
 
 
+
+const formatNumber =(value)=>{
+
+  const [integer, decimal] = value.split('.')
+  const formattedIntegerPart = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return decimal ? `${formattedIntegerPart}.${decimal}` : formattedIntegerPart;
+  }  
+
+
+
+
+const formatString = (value)=> {
+  if(typeof value === 'string'){
+  const numberString = value.replace (/,/g, '')
+  return parseFloat(numberString);
+}
+
+return ''
+
+  }
+
+
+
 const isSelected = serviceData.map(service => service.isSelected)
 
   const totalArea = Object.values(convertedAreas).reduce((acc, area) => acc + (area), 0)
@@ -139,34 +162,36 @@ const handleAddService = (index, value, value2) => {
 const tilePrice = tiles.map((tile) => tile.price) 
 
 
-   const allAreas =  serviceData.map((service) => 
- service.area ?
-(service.area * service.price) + (service.tilePrice * service.area) : '' ).reduce((amount, acc)=> parseFloat(amount + acc), 0)
+const allAreas = serviceData
+  .map((service) => {
+    if (service.area) {
+      const formattedArea = formatString(service.area);
+      return (formattedArea * service.price) + (service.tilePrice * formattedArea);
+    }
+    return 0; // Return 0 for services without an area
+  })
+
+  .reduce((acc, amount) => 
+   
+    acc + amount, 0);
    console.log(allAreas)
-   console.log(tilePrice)
 
 
 
- const formatNumber =(value)=>{
-
-  const options = {
-    minimumFractionDigits: 4,
-    maximumFractionDigits: 4,
-  };
 
 
-return `${parseFloat(value).toLocaleString('en-GB', options)} `;
- }  
 
 
-const handleUpdateInput = (value) => {
+const handleUpdateInput = (e) => {
 
-  const formattedNumber = formatNumber(value)
-    setUpdateInput( value )
+  const rawInput = e.target.value.replace(/,/g, '')
+  if (/^\d*\.?\d*$/.test(rawInput)) {
+    setUpdateInput(formatNumber(rawInput));
+}
 
 };
 
-console.log(serviceData)
+
 
 
 
@@ -195,8 +220,12 @@ console.log(serviceData)
           <span className={`${styles.error} ${updateInput === '' && isSelected ? styles.smooth : null} `}>{error}</span>
           </label>
       
-      <span style={{display: 'flex', gap: '0.4rem', alignItems: 'center'}}><input onChange={(e)=> handleUpdateInput (+ e.target.value)} 
-      value={updateInput} type="number" /> </span>
+      <span style={{display: 'flex', gap: '0.4rem', alignItems: 'center'}}><input onChange={handleUpdateInput} 
+      value={updateInput} 
+      type="text" 
+      inputMode='numeric'
+      placeholder='Enter a number'
+      /> </span>
       <p className='sqrMetres'>m²</p>
      
           </div>
@@ -222,7 +251,8 @@ console.log(serviceData)
       <div className= {item.isSelected ?  styles.show : styles.parDiv} > 
     <p > {item.isSelected && item.area + 'm²'}</p>
     <p > {item.area && item.tile}</p>
-    <p >{item.area &&   '£' + (Number(item.area * item.price )+ (item.area * item.tilePrice))} </p>
+
+    <p >{item.area &&   '£' + Number((formatString(item.area) * item.price) + (formatString(item.area) * item.tilePrice))} </p>
     </div>
       {/* </div> */}
 
@@ -250,7 +280,7 @@ console.log(serviceData)
           </div>
       
           </div>
-          <div className={styles.totalPrice}>Total price (per {serviceData.map(service => service.area).reduce((acc, size)=> parseFloat(acc + size), 0)} m²): £{allAreas} </div>
+          <div className={styles.totalPrice}>Total price (per {serviceData.map(service => Number(service.area)).reduce((acc, size)=> (acc + size), 0)} m²): £{allAreas} </div>
         </div>
         </div>
         </section>
