@@ -191,7 +191,15 @@ const handleUpdateInput = (e) => {
 
 };
 
-
+const sumOfAreas = serviceData
+  .map((service) => {
+    if (service.area) {
+      const formattedArea = formatString(service.area);
+      return formattedArea;
+    }
+    return 0; 
+  })
+  .reduce((acc, amount) => acc + amount, 0);
 
 
 
@@ -280,7 +288,7 @@ const handleUpdateInput = (e) => {
           </div>
       
           </div>
-          <div className={styles.totalPrice}>Total price (per {serviceData.map(service => Number(service.area)).reduce((acc, size)=> (acc + size), 0)} m²): £{allAreas} </div>
+          <div className={styles.totalPrice}>Total price (per {sumOfAreas}m²): £{allAreas} </div>
         </div>
         </div>
         </section>
