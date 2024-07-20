@@ -240,7 +240,7 @@ font-size: smaller;
        display: grid;
         grid-template-columns: 90%;
         justify-content: center;
-       
+       align-items: center;
         background-image: linear-gradient(to bottom,rgba(113, 113, 121, 0.696) 20%, rgba(228, 229, 232, 0.555) 50%);
 padding-top: 1rem;
       

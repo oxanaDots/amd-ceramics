@@ -731,7 +731,7 @@ opacity: 1;
 
   .hero{
 width: 80%;
-row-gap: 1.5rem;
+row-gap: 1rem;
 justify-content: center;
 align-content: center;
   }
@@ -766,6 +766,11 @@ justify-self: left;
     grid-row: 4;
     grid-column: 1/2 span;
     justify-self: center;
+  }
+
+  .hero h1{
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
   }
 
 }
