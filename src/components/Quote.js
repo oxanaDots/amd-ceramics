@@ -186,8 +186,9 @@ const handleUpdateInput = (e) => {
 
   const rawInput = e.target.value.replace(/,/g, '')
   if (/^\d*\.?\d*$/.test(rawInput)) {
-    setUpdateInput(formatNumber(rawInput));
+    setUpdateInput( formatNumber(rawInput));
 }
+
 
 };
 
@@ -260,7 +261,7 @@ const sumOfAreas = serviceData
     <p > {item.isSelected && item.area + 'm²'}</p>
     <p > {item.area && item.tile}</p>
 
-    <p >{item.area &&   '£' + Number((formatString(item.area) * item.price) + (formatString(item.area) * item.tilePrice))} </p>
+    <p >{item.area &&   '£' + item.area * item.price} </p>
     </div>
       {/* </div> */}
 
